@@ -64,18 +64,27 @@
             function billing()
             {  
                 total_cost= muttonCost + fishCost + eggCost;
-                tax=total_cost*(vat/100);
-                billtext='Mutton Quantity : x '+muttonQ+' = '+ muttonCost+' BDT'
-                +'\nFish Quantity   : x '+ fishQ + ' = ' + fishCost + ' BDT'
-                + '\nEgg Quantity    : x ' + eggQ + ' = ' + eggCost + ' BDT'
-                +'\n-----------------------------------\n'+
-                '                    Bill: '+total_cost+' BDT'
-                +'\n                     Tax: '+tax+' BDT'
-                + '\n-----------------------------------\n' +
-                '              Total Bill: ' + (total_cost+tax) + ' BDT'
+                if(total_cost!=0)
+                {
+                                    tax = total_cost * (vat / 100);
+                    billtext = 'Mutton Quantity : x ' + muttonQ + ' = ' + muttonCost + ' BDT'
+                        + '\nFish Quantity   : x ' + fishQ + ' = ' + fishCost + ' BDT'
+                        + '\nEgg Quantity    : x ' + eggQ + ' = ' + eggCost + ' BDT'
+                        + '\n-----------------------------------\n' +
+                        '                  Bill: ' + total_cost + ' BDT'
+                        + '\n                   Tax: ' + tax + ' BDT'
+                        + '\n-----------------------------------\n' +
+                        '            Total Bill: ' + (total_cost + tax) + ' BDT'
 
-                console.log(billtext)
-                document.getElementById('bill').value = billtext;
+                    console.log(billtext)
+                    document.getElementById('bill').value = billtext;
+                }
+                else{
+                    billtext='Order Something to create your bills'
+                    document.getElementById('bill').value = billtext;
+
+                }
+
 
 
             }
@@ -83,8 +92,8 @@
             function reset()
             {
                  muttonQ = 0, fishQ = 0, eggQ = 0;
-                 muttonCost=0,fishCost=0,eggCost=0;
-                 billtext='\nWelcome the the Resturant.'
+                 muttonCost = 0, fishCost = 0, eggCost = 0;
+                 billtext='Welcome the the Resturant.'
                  document.getElementById('bill').value = billtext;
                 console.log('Select Your Item')
             }
