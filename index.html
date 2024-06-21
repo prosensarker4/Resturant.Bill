@@ -67,14 +67,14 @@
                 if(total_cost!=0)
                 {
                     tax = total_cost * (vat / 100);
-                    billtext = 'Mutton Quantity : x ' + muttonQ + ' = ' + muttonCost + ' BDT'
-                        + '\nFish Quantity : x ' + fishQ + ' = ' + fishCost + ' BDT'
-                        + '\nEgg Quantity : x ' + eggQ + ' = ' + eggCost + ' BDT'
+                    billtext = 'Mutton Quantity : x ' + muttonQ + ' = ' + muttonCost.toString().padStart(length, '0') + ' BDT'
+                        + '\nFish Quantity : x ' + fishQ + ' = ' + fishCost.toString().padStart(length, '0') + ' BDT'
+                        + '\nEgg Quantity : x ' + eggQ + ' = ' + eggCost.toString().padStart(length, '0') + ' BDT'
                         + '\n-----------------------------------\n' +
-                        ' Bill: ' + total_cost + ' BDT'
-                        + '\n Tax: ' + tax + ' BDT'
+                        ' Bill: ' + total_cost.toString().padStart(length, '0') + ' BDT'
+                        + '\n Tax: ' + tax.toString().padStart(length, '0') + ' BDT'
                         + '\n-----------------------------------\n' +
-                        ' Total Bill: ' + (total_cost + tax) + ' BDT'
+                        ' Total Bill: ' + (total_cost + tax).toString().padStart(length, '0') + ' BDT'
 
                     console.log(billtext)
                     document.getElementById('bill').value = billtext;
