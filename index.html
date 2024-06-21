@@ -63,18 +63,19 @@
             }
             function billing()
             {  
-                total_cost= muttonCost + fishCost + eggCost;
+               total_cost= muttonCost + fishCost + eggCost;
+                let length = total_cost.toString().length;
                 if(total_cost!=0)
                 {
                     tax = total_cost * (vat / 100);
-                    billtext = 'Mutton Quantity : x ' + muttonQ + ' = ' + muttonCost.toString().padStart(length, '0') + ' BDT'
-                        + '\nFish Quantity : x ' + fishQ + ' = ' + fishCost.toString().padStart(length, '0') + ' BDT'
-                        + '\nEgg Quantity : x ' + eggQ + ' = ' + eggCost.toString().padStart(length, '0') + ' BDT'
+                    billtext = 'Mutton Quantity : x ' + muttonQ + ' = ' + muttonCost.toString().padStart(length, ' ') + ' BDT'
+                        + '\nFish Quantity : x ' + fishQ + ' = ' + fishCost.toString().padStart(length, ' ') + ' BDT'
+                        + '\nEgg Quantity : x ' + eggQ + ' = ' + eggCost.toString().padStart(length, ' ') + ' BDT'
                         + '\n-----------------------------------\n' +
-                        ' Bill: ' + total_cost.toString().padStart(length, '0') + ' BDT'
-                        + '\n Tax: ' + tax.toString().padStart(length, '0') + ' BDT'
+                        ' Bill: ' + total_cost.toString().padStart(length, ' ') + ' BDT'
+                        + '\n Tax: ' + tax.toString().padStart(length, ' ') + ' BDT'
                         + '\n-----------------------------------\n' +
-                        ' Total Bill: ' + (total_cost + tax).toString().padStart(length, '0') + ' BDT'
+                        ' Total Bill: ' + (total_cost + tax).toString().padStart(length, ' ') + ' BDT'
 
                     console.log(billtext)
                     document.getElementById('bill').value = billtext;
